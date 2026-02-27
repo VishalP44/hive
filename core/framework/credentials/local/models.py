@@ -35,7 +35,7 @@ class LocalAccountInfo:
     status: str = "unknown"
     identity: CredentialIdentity = field(default_factory=CredentialIdentity)
     last_validated: datetime | None = None
-    created_at: datetime = field(default_factory=datetime.utcnow)
+    created_at: datetime = field(default_factory=lambda: datetime.now(datetime.UTC))
 
     @property
     def storage_id(self) -> str:
